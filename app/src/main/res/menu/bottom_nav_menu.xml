@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+
+
+        <item
+            android:id="@+id/stars"
+            android:icon="@drawable/all_stars"
+            android:orderInCategory="100"
+            android:title="@string/stars"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/tv"
+            android:icon="@drawable/tv"
+            android:orderInCategory="100"
+            android:title="@string/watch"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/livestream"
+            android:icon="@drawable/streams_icon"
+            android:orderInCategory="100"
+            android:title="@string/streams"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/setting"
+            android:icon="@drawable/setting_icon"
+            android:orderInCategory="100"
+            android:title="@string/setting"
+            app:showAsAction="never" />
+    </group>
+</menu>
