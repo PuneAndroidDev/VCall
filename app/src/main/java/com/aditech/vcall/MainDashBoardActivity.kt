@@ -20,8 +20,8 @@ class MainDashBoardActivity : AppCompatActivity() {
         setCurrentFragment(VideoStreams())
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.stars->setCurrentFragment(Stars())
                 R.id.tv->setCurrentFragment(VideoStreams())
+                R.id.stars->setCurrentFragment(Stars())
                 R.id.livestream->setCurrentFragment(LiveStreams())
                 R.id.setting->setCurrentFragment(Setting())
             }

@@ -3,18 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
 
-
-        <item
-            android:id="@+id/stars"
-            android:icon="@drawable/all_stars"
-            android:orderInCategory="100"
-            android:title="@string/stars"
-            app:showAsAction="never" />
         <item
             android:id="@+id/tv"
             android:icon="@drawable/tv"
             android:orderInCategory="100"
             android:title="@string/watch"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/stars"
+            android:icon="@drawable/all_stars"
+            android:orderInCategory="100"
+            android:title="@string/stars"
             app:showAsAction="never" />
         <item
             android:id="@+id/livestream"
@@ -28,5 +27,6 @@
             android:orderInCategory="100"
             android:title="@string/setting"
             app:showAsAction="never" />
+
     </group>
 </menu>
