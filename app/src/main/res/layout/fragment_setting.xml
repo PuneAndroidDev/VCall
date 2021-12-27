@@ -5,10 +5,168 @@
     android:layout_height="match_parent"
     tools:context=".ui.setting.Setting">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/setting"
-        android:layout_centerInParent="true"/>
+        android:layout_margin="10dp">
 
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:src="@drawable/dp"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:layout_gravity="center"
+            android:elevation="5dp"
+            android:layout_marginTop="20dp"
+            card_view:cardCornerRadius="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:text="@string/my_account"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/name"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/loginName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="User-ID"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/loginUserID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/right" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_view"
+            android:layout_gravity="center"
+            android:elevation="5dp"
+            android:layout_marginTop="20dp"
+            card_view:cardCornerRadius="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:text="@string/security"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/changepassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="3"
+
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/change_password"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/right" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 </RelativeLayout>

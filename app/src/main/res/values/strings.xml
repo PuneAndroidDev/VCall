@@ -19,5 +19,9 @@
     <string name="video_image">Video Image</string>
     <string name="registration">Register</string>
     <string name="watch">Watch</string>
+    <string name="security">Security</string>
     <string name="stars">Stars</string>
+    <string name="compose_shortcut_short_label0">Open</string>
+    <string name="my_account">MY ACCOUNT</string>
+    <string name="change_password">Change Password</string>
 </resources>
