@@ -24,4 +24,6 @@
     <string name="compose_shortcut_short_label0">Open</string>
     <string name="my_account">MY ACCOUNT</string>
     <string name="change_password">Change Password</string>
+    <string name="help">Help</string>
+    <string name="faq">FAQ</string>
 </resources>
