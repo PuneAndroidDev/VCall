@@ -1,4 +1,5 @@
 package com.aditech.vcall.network
+
 class Constraints {
 
     companion object {

@@ -12,7 +12,6 @@ class VideoStreamViewModal:ViewModel() {
     private var videoStreamRepository:VideoStreamRepository
     var videoStreamsArrayList: LiveData<ArrayList<VideoStreamModal>>
 
-
     init {
         videoStreamRepository = VideoStreamRepository()
         videoStreamsArrayList = videoStreamRepository.videoStreamsArrayList

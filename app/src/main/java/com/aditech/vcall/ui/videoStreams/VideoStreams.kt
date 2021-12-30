@@ -2,7 +2,6 @@ package com.aditech.vcall.ui.videoStreams
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,8 +20,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
-private const val TAG = "VideoStreams"
 
 class VideoStreams : Fragment() {
 

@@ -17,6 +17,7 @@ class VideoStreamRepository {
     }
 
     fun videoStreamList() {
+
         NetworkCalls.instance()
         val call = NetworkCalls.videoCallAPI.videoList()
         call.enqueue(object : Callback<ArrayList<VideoStreamModal>> {
@@ -35,5 +36,6 @@ class VideoStreamRepository {
             }
 
         })
+
     }
 }

@@ -9,9 +9,7 @@ import retrofit2.http.POST
 
 interface VideoCallAPIs {
 
-
     @GET("/videolist")
     fun videoList(): Call<ArrayList<VideoStreamModal>>
-
 
 }
