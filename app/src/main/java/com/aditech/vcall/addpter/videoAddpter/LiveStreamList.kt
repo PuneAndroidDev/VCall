@@ -1,14 +1,16 @@
 package com.aditech.vcall.addpter.videoAddpter
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aditech.vcall.R
 import com.aditech.vcall.network.networkModal.LiveVideoModal
+import com.aditech.vcall.ui.videoStreams.VideoCallActivity
 
 class LiveStreamList(private var liveVideoStreams: ArrayList<LiveVideoModal>, private var context: Context) :
     RecyclerView.Adapter<LiveStreamList.LiveVideoHolder>() {
@@ -17,10 +19,8 @@ class LiveStreamList(private var liveVideoStreams: ArrayList<LiveVideoModal>, pr
     class LiveVideoHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var clickListener: ClickListener? = null
         fun bindItems(v: LiveVideoModal, context: Context, clickListener: ClickListener) {
-
-            val videoImageView: ImageView = itemView.findViewById(R.id.videoimage)
-
-
+            val videoCall1: ImageView = itemView.findViewById(R.id.videoCall1)
+            videoCall1.setImageResource(R.drawable.logo)
             this.clickListener=clickListener
             itemView.setOnClickListener(this)
 
@@ -38,6 +38,9 @@ class LiveStreamList(private var liveVideoStreams: ArrayList<LiveVideoModal>, pr
 
     override fun onBindViewHolder(holder: LiveStreamList.LiveVideoHolder, position: Int) {
         clickListener?.let { holder.bindItems(liveVideoStreams[position], context, it) }
+        holder.itemView.setOnClickListener {
+            context.startActivity(Intent(context,VideoCallActivity::class.java))
+        }
     }
 
     fun setOnItemClickListener(clickListener: ClickListener) {

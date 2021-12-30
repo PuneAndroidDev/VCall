@@ -1,5 +1,6 @@
 package com.aditech.vcall.util
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Paint
 import android.os.Build
@@ -32,6 +33,7 @@ fun Context.showKeyBoard() {
         InputMethodManager.HIDE_IMPLICIT_ONLY
     )
 }
+
 
 //Hide KeyBoard in all activity and fragment
 fun Context.hideKeyboard(view: View) {
