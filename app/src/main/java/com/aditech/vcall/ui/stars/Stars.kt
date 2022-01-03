@@ -1,40 +1,60 @@
 package com.aditech.vcall.ui.stars
 
-import android.hardware.Camera
-import android.net.Uri
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.*
+import android.widget.FrameLayout
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.aditech.vcall.R
-import com.aditech.vcall.network.Constraints.Companion.TESTBASEURL
+import com.aditech.vcall.network.Constraints.Companion.CHANNEL
+import io.agora.rtc.Constants
+import io.agora.rtc.IRtcEngineEventHandler
+import io.agora.rtc.RtcEngine
+import io.agora.rtc.video.VideoCanvas
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
+private const val TAG = "Stars"
 class Stars : Fragment() {
 
-    private var web: String = TESTBASEURL
-    private lateinit var webView: WebView
 
-    companion object {
-        private const val CAMERA_REQUEST_CODE = 113
-        private const val REQUEST_SELECT_FILE = 13
-        private const val INTENT_FILE_TYPE = "image/*"
-        private const val RESULT_OK = 78
-    }
-
-    private var imagePathCallback: ValueCallback<Array<Uri>>? = null
-    private var cameraImagePath: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_stars, container, false)
-        webView = view.findViewById(R.id.horizontalVideoPlayWebView)
+        val view = inflater.inflate(R.layout.fragment_stars, container, false)
+        requireActivity().startActivity(Intent(requireContext(),LiveStreamActivity::class.java))
+        return view as View
+    }
+
+
+
+/*
+    private var web: String = TESTBASEURL
+    private lateinit var webView: WebView
+
+    companion object {
+        private const val CAMERA_REQUEST_CODE = 113
+        private const val REQUEST_SELECT_FILE = 13
+        private const val INTENT_FILE_TYPE = "image"
+        private const val RESULT_OK = 78
+    }
+
+    private var imagePathCallback: ValueCallback<Array<Uri>>? = null
+    private var cameraImagePath: String? = null
+
+ webView = view.findViewById(R.id.horizontalVideoPlayWebView)
         openFrontFacingCameraGingerbread()
         webView.settings.javaScriptEnabled = true
         webView.settings.domStorageEnabled = true
@@ -57,10 +77,6 @@ class Stars : Fragment() {
             }
         }
 
-        return view
-    }
-
-
     private fun openFrontFacingCameraGingerbread(): Camera? {
         var cameraCount = 0
         var cam: Camera? = null
@@ -82,5 +98,5 @@ class Stars : Fragment() {
 
     private fun getCustomWebChromeClient() = object : WebChromeClient() {
 
-    }
+    }*/
 }

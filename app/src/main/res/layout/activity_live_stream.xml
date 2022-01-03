@@ -4,7 +4,8 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.stars.Stars">
+    tools:context=".ui.stars.LiveStreamActivity">
+
 
     <FrameLayout
         android:id="@+id/local_video_view_container"

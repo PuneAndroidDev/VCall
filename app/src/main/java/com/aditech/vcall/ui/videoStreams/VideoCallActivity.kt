@@ -15,6 +15,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.aditech.vcall.R
+import com.aditech.vcall.network.Constraints.Companion.APPID
+import com.aditech.vcall.network.Constraints.Companion.CHANNEL
+import com.aditech.vcall.network.Constraints.Companion.TOKEN
 import com.aditech.vcall.util.toast
 import io.agora.rtc.IRtcEngineEventHandler
 import io.agora.rtc.RtcEngine
@@ -157,7 +160,7 @@ class VideoCallActivity : AppCompatActivity() {
 
     private fun initializeAgoraEngine() {
         try {
-            mRtcEngine = RtcEngine.create(baseContext, getString(R.string.agora_app_id), mRtcEventHandler)
+            mRtcEngine = RtcEngine.create(baseContext, APPID, mRtcEventHandler)
         } catch (e: Exception) {
             Log.e(LOG_TAG, Log.getStackTraceString(e))
             throw RuntimeException("NEED TO check rtc sdk init fatal error\n" + Log.getStackTraceString(e))
@@ -185,11 +188,11 @@ class VideoCallActivity : AppCompatActivity() {
     }
 
     private fun joinChannel() {
-        var token: String? = getString(R.string.agora_access_token)
+        var token: String? = TOKEN
         if (token!!.isEmpty()) {
             token = null
         }
-        mRtcEngine!!.joinChannel(token, "BroadCastChannel", "Extra Optional Data", 0) // if you do not specify the uid, we will generate the uid for you
+        mRtcEngine!!.joinChannel(token, CHANNEL, "Extra Optional Data", 0) // if you do not specify the uid, we will generate the uid for you
     }
 
     private fun setupRemoteVideo(uid: Int) {

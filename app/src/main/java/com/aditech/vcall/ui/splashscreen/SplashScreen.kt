@@ -59,10 +59,7 @@ class SplashScreen : Fragment() {
             alertDialog.show()
 
         } else {
-            CoroutineScope(Dispatchers.Main).launch {
-                delay(2000)
-               startActivity(Intent(requireContext(),MainDashBoardActivity::class.java))
-            }
+
 
         }
     }

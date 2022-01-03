@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.1125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable/call_end.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable/splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_live_stream.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_main.xml" value="0.11734693877551021" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_main2.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_main_dash_board.xml" value="0.1546875" />
