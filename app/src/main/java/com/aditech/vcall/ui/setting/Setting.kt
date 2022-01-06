@@ -1,19 +1,18 @@
 package com.aditech.vcall.ui.setting
 
 import android.app.AlertDialog
-import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.aditech.vcall.R
-import com.aditech.vcall.ui.videoStreams.VideoCallActivity
+import com.aditech.vcall.ui.login.LoginViewModal
+import com.co_vision.co_vision.Localstorage_Room.SharedPreference.LoginCredentials
 import java.util.regex.Pattern
 
 class Setting : Fragment() {
@@ -22,6 +21,10 @@ class Setting : Fragment() {
     private lateinit var changePassword: LinearLayout
     private lateinit var faq: LinearLayout
     private lateinit var support: LinearLayout
+    private lateinit var viewModal: LoginViewModal
+    private lateinit var name:TextView
+    private lateinit var userId:TextView
+
     private val PASSWORD_PATTERN: Pattern = Pattern.compile(
         "^" +
                 "(?=.*[@#$%^&+=])" +  // at least 1 special character
@@ -35,8 +38,19 @@ class Setting : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view: View = inflater.inflate(R.layout.fragment_setting, container, false)
+        viewModal = ViewModelProvider(this).get(LoginViewModal::class.java)
+
         myAccount = view.findViewById(R.id.myaccount)
         changePassword = view.findViewById(R.id.changepassword)
+        name = view.findViewById(R.id.loginName)
+        userId = view.findViewById(R.id.loginUserID)
+        viewModal.getUserModal(LoginCredentials.sharedPreferences.getString("UID", "NAN").toString())
+        viewModal.modal.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                name.text=it.Name
+                userId.text=it.UserID
+            }
+        })
         faq = view.findViewById(R.id.faq)
         support = view.findViewById(R.id.support)
         faq.setOnClickListener { FAQ() }
@@ -63,13 +77,12 @@ class Setting : Fragment() {
         val customLayout: View = layoutInflater
             .inflate(R.layout.supporttechnology,null )
         alertDialogBuilder.setView(customLayout)
-        alertDialogBuilder.setPositiveButton("Yes",DialogInterface.OnClickListener {
-                dialog, which ->
+        alertDialogBuilder.setPositiveButton("Yes") { dialog, _ ->
             dialog.dismiss()
-        })
-        alertDialogBuilder.setNegativeButton("Close",DialogInterface.OnClickListener { dialog, which ->
+        }
+        alertDialogBuilder.setNegativeButton("Close") { dialog, _ ->
             dialog.dismiss()
-        })
+        }
         val alertDialog: AlertDialog = alertDialogBuilder.create()
         alertDialog.setCancelable(false)
         alertDialog.show()
@@ -82,13 +95,12 @@ class Setting : Fragment() {
         val customLayout: View = layoutInflater
             .inflate(R.layout.inflate_faq,null )
         alertDialogBuilder.setView(customLayout)
-        alertDialogBuilder.setPositiveButton("Yes",DialogInterface.OnClickListener {
-                dialog, which ->
+        alertDialogBuilder.setPositiveButton("Yes") { dialog, _ ->
             dialog.dismiss()
-        })
-        alertDialogBuilder.setNegativeButton("Close",DialogInterface.OnClickListener { dialog, which ->
+        }
+        alertDialogBuilder.setNegativeButton("Close") { dialog, _ ->
             dialog.dismiss()
-        })
+        }
         val alertDialog: AlertDialog = alertDialogBuilder.create()
         alertDialog.setCancelable(false)
         alertDialog.show()
@@ -127,12 +139,12 @@ class Setting : Fragment() {
                 confirmPassword.error = "Required Fields"
                 return@setOnClickListener
             }
-            if (!newPassword.text.toString().equals(confirmPassword.text.toString())) {
+            if (newPassword.text.toString() != confirmPassword.text.toString()) {
                 newPassword.error = "Password Required Same"
                 return@setOnClickListener
             }
             if (!PASSWORD_PATTERN.matcher(newPassword.text.toString()).matches()) {
-                newPassword.setError("Password is too weak Requierd [@#$%^&*] and numeric")
+                newPassword.error = "Password is too weak Required [@#$%^&*] and numeric"
                 return@setOnClickListener
             }
 

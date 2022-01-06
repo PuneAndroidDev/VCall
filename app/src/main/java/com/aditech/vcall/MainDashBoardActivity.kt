@@ -16,7 +16,6 @@ class MainDashBoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_VCall)
-
         setContentView(R.layout.activity_main_dash_board)
         bottomNavigationView=findViewById(R.id.bottomNavigationView1)
         setCurrentFragment(VideoStreams())

@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.aditech.vcall.R
 import com.google.android.material.textfield.TextInputLayout
 import java.util.regex.Pattern
-import android.content.DialogInterface
 import androidx.navigation.Navigation
 
 
@@ -113,13 +112,12 @@ class Registration : Fragment() {
                 confirmPassword.requestFocus()
                 return@setOnClickListener
             }
-/*
             if (password.text.toString().length<=6) {
                 password.error = "Length must greater than 6 characters"
                 password.requestFocus()
                 return@setOnClickListener
             }
-            if (!PASSWORD_PATTERN.matcher(password.text.toString()).matches()) {
+           /* if (!PASSWORD_PATTERN.matcher(password.text.toString()).matches()) {
                 password.error = "Password is too weak"
                 return@setOnClickListener
             }*/

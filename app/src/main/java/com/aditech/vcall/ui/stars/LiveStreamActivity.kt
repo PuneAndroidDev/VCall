@@ -2,9 +2,9 @@ package com.aditech.vcall.ui.stars
 
 import android.Manifest
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.aditech.vcall.R
@@ -33,7 +33,7 @@ class LiveStreamActivity : AppCompatActivity() {
     private val channelName = Constraints.CHANNEL
 
     // Fill the temp token generated on Agora Console.
-    private val token =Constraints.TOKEN
+    private val token = Constraints.TOKEN
 
     private var mRtcEngine: RtcEngine? = null
 
@@ -53,14 +53,15 @@ class LiveStreamActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_live_stream)
         if (checkSelfPermission(REQUESTED_PERMISSIONS[0], PERMISSION_REQ_ID) &&
-            checkSelfPermission(REQUESTED_PERMISSIONS[1], PERMISSION_REQ_ID)) {
+            checkSelfPermission(REQUESTED_PERMISSIONS[1], PERMISSION_REQ_ID)
+        ) {
 
         }
         initializeAndJoinChannel();
     }
 
     private fun setupRemoteVideo(uid: Int) {
-        val container: FrameLayout =findViewById(R.id.remote_video_view_container)
+        val container: FrameLayout = findViewById(R.id.remote_video_view_container)
         val surfaceView = RtcEngine.CreateRendererView(this)
         surfaceView.setZOrderMediaOverlay(true)
         container.addView(surfaceView)
@@ -78,7 +79,7 @@ class LiveStreamActivity : AppCompatActivity() {
     }
 
     private fun initializeAndJoinChannel() {
-        mRtcEngine =  RtcEngine.create(this, appId, mRtcEventHandler)
+        mRtcEngine = RtcEngine.create(this, appId, mRtcEventHandler)
 
         // For a live streaming scenario, set the channel profile as BROADCASTING.
         mRtcEngine?.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING)

@@ -14,10 +14,11 @@ object NetworkCalls {
     lateinit var videoCallAPI: VideoCallAPIs
     lateinit var loginAPIs: LoginAPIs
     lateinit var registrationAPIs: RegistrationAPIs
+    lateinit var profileAPIs: ProfileAPIs
 
     fun instance(): Retrofit {
 
-        /*val httpClient = OkHttpClient.Builder()
+      /*  val httpClient = OkHttpClient.Builder()
             .connectTimeout(1, TimeUnit.MINUTES)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(15, TimeUnit.SECONDS)
@@ -38,7 +39,7 @@ object NetworkCalls {
         videoCallAPI=retrofit.create(VideoCallAPIs::class.java)
         registrationAPIs=retrofit.create(RegistrationAPIs::class.java)
         loginAPIs=retrofit.create(LoginAPIs::class.java)
-
+        profileAPIs=retrofit.create(ProfileAPIs::class.java)
         return retrofit
     }
 

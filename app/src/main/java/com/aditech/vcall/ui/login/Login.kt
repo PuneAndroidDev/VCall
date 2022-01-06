@@ -1,8 +1,8 @@
 package com.aditech.vcall.ui.login
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,51 +14,71 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.aditech.vcall.MainDashBoardActivity
 import com.aditech.vcall.R
+import com.aditech.vcall.network.Constraints
+import com.co_vision.co_vision.Localstorage_Room.SharedPreference.LoginCredentials.setCredentials
 
-private const val REQUIRED="Required Fields"
+private const val REQUIRED = "Required Fields"
 private const val TAG = "Login"
+
 class Login : Fragment() {
 
-    private lateinit var registerAccount:TextView
-    private lateinit var loginButton:Button
-    private lateinit var loginUserName:EditText
-    private lateinit var loginPassword:EditText
+    private lateinit var registerAccount: TextView
+    private lateinit var loginButton: Button
+    private lateinit var loginUserName: EditText
+    private lateinit var loginPassword: EditText
     private lateinit var viewModal: LoginViewModal
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view:View=inflater.inflate(R.layout.fragment_login, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_login, container, false)
         viewModal = ViewModelProvider(this).get(LoginViewModal::class.java)
-        loginButton=view.findViewById(R.id.login_button)
-        loginUserName=view.findViewById(R.id.login_username)
-        loginPassword=view.findViewById(R.id.login_password)
-        registerAccount=view.findViewById(R.id.register_account)
-       /* loginButton.setOnClickListener {
+        loginButton = view.findViewById(R.id.login_button)
+        loginUserName = view.findViewById(R.id.login_username)
+        loginPassword = view.findViewById(R.id.login_password)
+        registerAccount = view.findViewById(R.id.register_account)
+
+        loginButton.setOnClickListener {
+
             if (loginUserName.text.toString().equals("")) {
                 loginUserName.error = REQUIRED
                 loginUserName.requestFocus()
                 return@setOnClickListener
             }
+
             if (loginPassword.text.toString().equals("")) {
                 loginPassword.error = REQUIRED
                 loginPassword.requestFocus()
                 return@setOnClickListener
             }
-            viewModal.login(loginUserName.text.toString(),loginPassword.text.toString())
+
+            viewModal.login(loginUserName.text.toString(), loginPassword.text.toString())
+
         }
 
-        viewModal.userModal.observe(viewLifecycleOwner,{
-            if(it.loginStatus) {
+        viewModal.tokenizer.observe(viewLifecycleOwner, {
+            if (it?.loginStatus == true) {
+
+                requireContext().setCredentials(it.UserID)
+
                 startActivity(Intent(context, MainDashBoardActivity::class.java))
+
+            } else if(it?.loginStatus == false){
+
+                    val alertDialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                    alertDialog.setTitle("Error")
+                    alertDialog.setMessage("Login Failed Incorrect Credentials")
+                    alertDialog.setNeutralButton(
+                        "Ok",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            dialog.dismiss()
+                        })
+                    val alert = alertDialog.create()
+                    alert.show()
+
             }
-        })*/
-
-        loginButton.setOnClickListener {
-            startActivity(Intent(context, MainDashBoardActivity::class.java))
-        }
-
+        })
 
         registerAccount.setOnClickListener {
             Navigation.findNavController(view)
