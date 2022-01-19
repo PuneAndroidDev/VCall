@@ -171,7 +171,7 @@
                         android:id="@+id/profilecompltionnext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/registration">
+                        android:text="@string/next">
 
                     </Button>
                 </RelativeLayout>

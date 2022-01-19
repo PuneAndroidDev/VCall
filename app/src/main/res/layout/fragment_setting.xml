@@ -8,7 +8,8 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        tools:ignore="UselessParent">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/image"
@@ -47,9 +48,9 @@
                         android:textStyle="bold" />
 
                     <LinearLayout
+                        android:id="@+id/myAccount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/myaccount"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="40dp"
                         android:layout_marginRight="10dp"
@@ -60,45 +61,47 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:baselineAligned="false">
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:layout_weight="1"
-                                android:orientation="horizontal">
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:text="@string/name"
+                                    android:textColor="@color/black"
                                     android:textSize="18sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/userid"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_weight="2"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/loginName"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="3"
-                                    android:textSize="18sp" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="User-ID"
                                     android:textSize="18sp" />
 
                                 <TextView
@@ -158,15 +161,16 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="0dp"
                                 android:layout_weight="1"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:text="@string/change_password"
+                                    android:textColor="@color/black"
                                     android:textSize="18sp" />
 
                             </LinearLayout>
@@ -208,20 +212,21 @@
                         android:layout_marginTop="40dp"
                         android:layout_marginRight="10dp"
                         android:layout_weight="3"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
                             android:orientation="vertical">
 
                             <LinearLayout
+                                android:id="@+id/faq"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_weight="1"
-                                android:id="@+id/faq"
                                 android:orientation="horizontal">
 
                                 <TextView
@@ -229,6 +234,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="3"
                                     android:text="@string/faq"
+                                    android:textColor="@color/black"
                                     android:textSize="18sp" />
 
                                 <ImageView
@@ -240,10 +246,10 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/support"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_marginTop="10dp"
-                                android:id="@+id/support"
                                 android:layout_weight="1"
                                 android:orientation="horizontal">
 
@@ -252,6 +258,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="3"
                                     android:text="Support"
+                                    android:textColor="@color/black"
                                     android:textSize="18sp" />
 
                                 <ImageView
@@ -262,6 +269,29 @@
 
                             </LinearLayout>
 
+                            <LinearLayout
+                                android:id="@+id/logout"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="3"
+                                    android:text="@string/logout"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/logout" />
+
+                            </LinearLayout>
                         </LinearLayout>
 
                     </LinearLayout>

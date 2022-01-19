@@ -10,6 +10,16 @@ interface ProfileAPIs {
 
     @FormUrlEncoded
     @POST("/profile/getUserData")
-    fun getUserModal(@Field("userID") userID: String): Call<UserModal>
+    fun getUserModal(@Field("UserID") userID: String): Call<UserModal>
+
+    @FormUrlEncoded
+    @POST("/profile/changePassword")
+    fun changePassword(@Field("UserID") userID: String,
+                       @Field("password") password: String): Call<Boolean>
+
+    @FormUrlEncoded
+    @POST("/profile/changeName")
+    fun changeName(@Field("UserID") userID: String,
+                       @Field("name") name: String): Call<Boolean>
 
 }

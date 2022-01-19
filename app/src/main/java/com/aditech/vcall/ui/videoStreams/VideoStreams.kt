@@ -33,7 +33,8 @@ class VideoStreams : Fragment() {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
@@ -53,6 +54,7 @@ class VideoStreams : Fragment() {
         if (savedInstanceState != null) {
             webView.restoreState(savedInstanceState)
         } else {
+            viewModal.videoStreamList()
             webView.settings.javaScriptEnabled = true
         }
 

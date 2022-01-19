@@ -3,6 +3,8 @@ package com.aditech.vcall
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
 import com.aditech.vcall.ui.liveStreams.LiveStreams
 import com.aditech.vcall.ui.setting.Setting
 import com.aditech.vcall.ui.stars.Stars
@@ -12,6 +14,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainDashBoardActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var navController: NavController
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,4 +38,6 @@ class MainDashBoardActivity : AppCompatActivity() {
             replace(R.id.flFragment,fragment)
             commit()
         }
+
+
 }

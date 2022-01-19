@@ -5,27 +5,36 @@
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.1125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable/call_end.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable/edittext_design.xml" value="0.20153846153846153" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/drawable/splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_chat.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_connect_stream.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_live_stream.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_main.xml" value="0.11734693877551021" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_main2.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_main_dash_board.xml" value="0.1546875" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/activity_video_call.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_account_setting.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_dash_board.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_live_streams.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_login.xml" value="0.20412595005428882" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_registration.xml" value="0.18" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_second.xml" value="0.12135416666666667" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_setting.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_setting.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_stars.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/fragment_video_streams.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/inflate_add_interest.xml" value="0.1828125" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/inflate_change_password.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/inflate_faq.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/inflate_livevideos_list.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/inflate_videostream.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/item_received_message.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/item_received_photo.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/item_sent_image.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/item_sent_message.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/open_shortcut_menu.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/layout/supporttechnology.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/VCall/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />

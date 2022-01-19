@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.aditech.vcall.MainDashBoardActivity
 import com.aditech.vcall.R
-import com.aditech.vcall.network.Constraints
 import com.co_vision.co_vision.Localstorage_Room.SharedPreference.LoginCredentials.setCredentials
 
 private const val REQUIRED = "Required Fields"
@@ -26,6 +26,7 @@ class Login : Fragment() {
     private lateinit var loginButton: Button
     private lateinit var loginUserName: EditText
     private lateinit var loginPassword: EditText
+    private lateinit var loginProgress: ProgressBar
     private lateinit var viewModal: LoginViewModal
 
     override fun onCreateView(
@@ -35,11 +36,19 @@ class Login : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_login, container, false)
         viewModal = ViewModelProvider(this).get(LoginViewModal::class.java)
         loginButton = view.findViewById(R.id.login_button)
+        loginProgress = view.findViewById(R.id.loginLoading)
         loginUserName = view.findViewById(R.id.login_username)
         loginPassword = view.findViewById(R.id.login_password)
         registerAccount = view.findViewById(R.id.register_account)
 
+        loginProgress.setOnClickListener {
+            loginProgress.visibility = View.GONE
+            loginButton.visibility = View.VISIBLE
+        }
         loginButton.setOnClickListener {
+            loginProgress.visibility = View.VISIBLE
+            loginButton.visibility = View.GONE
+            startActivity(Intent(context, MainDashBoardActivity::class.java))
 
             if (loginUserName.text.toString().equals("")) {
                 loginUserName.error = REQUIRED
@@ -64,18 +73,21 @@ class Login : Fragment() {
 
                 startActivity(Intent(context, MainDashBoardActivity::class.java))
 
-            } else if(it?.loginStatus == false){
+            } else if (it?.loginStatus == false) {
 
-                    val alertDialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
-                    alertDialog.setTitle("Error")
-                    alertDialog.setMessage("Login Failed Incorrect Credentials")
-                    alertDialog.setNeutralButton(
-                        "Ok",
-                        DialogInterface.OnClickListener { dialog, which ->
-                            dialog.dismiss()
-                        })
-                    val alert = alertDialog.create()
-                    alert.show()
+                loginProgress.visibility = View.GONE
+                loginButton.visibility = View.VISIBLE
+
+                val alertDialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                alertDialog.setTitle("Error")
+                alertDialog.setMessage("Login Failed Incorrect Credentials")
+                alertDialog.setNeutralButton(
+                    "Ok",
+                    DialogInterface.OnClickListener { dialog, which ->
+                        dialog.dismiss()
+                    })
+                val alert = alertDialog.create()
+                alert.show()
 
             }
         })
@@ -87,5 +99,4 @@ class Login : Fragment() {
 
         return view
     }
-
 }

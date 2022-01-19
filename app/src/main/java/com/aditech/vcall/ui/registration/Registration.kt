@@ -15,7 +15,7 @@ import com.aditech.vcall.R
 import com.google.android.material.textfield.TextInputLayout
 import java.util.regex.Pattern
 import androidx.navigation.Navigation
-
+import com.co_vision.co_vision.Localstorage_Room.SharedPreference.LoginCredentials
 
 private const val TAG = "Registration"
 
@@ -27,7 +27,7 @@ class Registration : Fragment() {
     private lateinit var password: TextView
     private lateinit var confirmPassword: TextView
     private lateinit var phoneNumber: TextView
-    private lateinit var registerButton: Button
+    private lateinit var nextButton: Button
     private lateinit var uidStatus: TextInputLayout
     private var REQUIRED: String = "Required Field"
     private val PASSWORD_PATTERN: Pattern = Pattern.compile(
@@ -49,7 +49,7 @@ class Registration : Fragment() {
         phoneNumber = view.findViewById(R.id.phonenumber)
         confirmPassword = view.findViewById(R.id.confirm_password)
         password = view.findViewById(R.id.register_password)
-        registerButton = view.findViewById(R.id.profilecompltionnext)
+        nextButton = view.findViewById(R.id.profilecompltionnext)
         uidStatus = view.findViewById(R.id.r2)
         name.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -85,7 +85,7 @@ class Registration : Fragment() {
             userID.text = it
         })
 
-        registerButton.setOnClickListener {
+        nextButton.setOnClickListener {
 
             if (userID.text.toString().equals("")) {
                 userID.error = REQUIRED
@@ -126,12 +126,10 @@ class Registration : Fragment() {
                     userID.error = "ID already taken"
                 }
                 else{
-                    viewModal.completeprofile(
-                        userID.text.toString(),
+                    moveToAddInterest(   userID.text.toString(),
                         name.text.toString(),
                         phoneNumber.text.toString(),
-                        password.text.toString()
-                    )
+                        password.text.toString())
                 }
             })
 
@@ -148,6 +146,45 @@ class Registration : Fragment() {
         })
 
         return view
+    }
+
+    private fun moveToAddInterest(userID:String,name:String,phoneNumber:String,password:String) {
+
+        val art:Button
+        val business:Button
+        val craft:Button
+        val education:Button
+        val entertainment:Button
+        val food:Button
+        val music:Button
+        val travel:Button
+
+        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+        val customLayout: View = layoutInflater
+            .inflate(R.layout.inflate_add_interest, null)
+        alertDialogBuilder.setTitle("Account")
+        art = customLayout.findViewById(R.id.art)
+        business = customLayout.findViewById(R.id.business)
+        craft = customLayout.findViewById(R.id.craft)
+        education = customLayout.findViewById(R.id.education)
+        entertainment = customLayout.findViewById(R.id.entertainment)
+        food = customLayout.findViewById(R.id.food)
+        music = customLayout.findViewById(R.id.music)
+        travel = customLayout.findViewById(R.id.travel)
+        alertDialogBuilder.setView(customLayout)
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+
+
+
+
+        viewModal.completeprofile(
+            userID,
+            name,
+            phoneNumber,
+            password
+        )
     }
 
     private fun alertBox(status:Boolean,view: View )

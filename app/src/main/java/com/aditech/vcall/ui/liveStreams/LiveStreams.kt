@@ -27,6 +27,10 @@ class LiveStreams : Fragment() {
         recyclerview = view.findViewById(R.id.livelistrecycle)
         data.add(LiveVideoModal("Parth"))
         data.add(LiveVideoModal("Kevin"))
+
+
+
+
         recyclerview.layoutManager = LinearLayoutManager(requireContext())
         val adapter = LiveStreamList(data, requireContext())
         recyclerview.adapter = adapter
